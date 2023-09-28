@@ -1,16 +1,15 @@
+import { Routes, Route } from 'react-router-dom';
+import { lazy } from 'react';
+import { GlobalStyle } from './GlobalStyle';
+import {SharedLayout} from '../components/SharedLayout/SharedLayout';
+
+const Home = lazy(() => import('../pages/Home'));
+
+
+
 export const App = () => {
   return (
-    <div
-      style={{
-        height: '100vh',
-        display: 'flex',
-        justifyContent: 'center',
-        alignItems: 'center',
-        fontSize: 40,
-        color: '#010101'
-      }}
-    >
-      React homework template
-    </div>
+   
   );
 };
+
