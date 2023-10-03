@@ -1,8 +1,9 @@
 import axios from 'axios'
 
-//axios.defaults.baseURL = 'https://api.themoviedb.org/3/';
+axios.defaults.baseURL = 'https://api.themoviedb.org/3';
 
-const API_KEY = '1b7ac39ef2587fff86f686a42562ed8c'
+const API_KEY = '1b7ac39ef2587fff86f686a42562ed8c';
+
 export const fetchLatestMovies = async (page, controller) => {
   const response = await axios.get(
     `https://api.themoviedb.org/3/trending/all/week?api_key=${API_KEY}&language=en-US&page=${page}`,

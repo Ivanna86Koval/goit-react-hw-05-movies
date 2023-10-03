@@ -5,8 +5,9 @@ import { useEffect } from 'react';
 import { useParams } from 'react-router-dom';
 
 const MovieCast = () => {
-  const { movieId } = useParams();
   const [actors, setActors] = useState([]);
+  const { movieId } = useParams();
+  
 
   useEffect(() => {
     async function fetchCast() {
