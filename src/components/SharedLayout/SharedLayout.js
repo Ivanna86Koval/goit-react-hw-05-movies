@@ -1,5 +1,5 @@
-import React from 'react';
-import { Container } from './Container';
+/*import React from 'react';
+//import { Container } from './Container';
 import { Header } from './Header/Header';
 import { Suspense } from 'react';
 import { Outlet } from 'react-router-dom';
@@ -13,4 +13,4 @@ export const SharedLayout = () => {
       </Suspense>
     </Container>
   );
-};
+};*/
