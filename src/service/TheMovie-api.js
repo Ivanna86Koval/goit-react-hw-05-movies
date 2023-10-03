@@ -11,7 +11,6 @@ export const fetchLatestMovies = async (page, controller) => {
       signal: controller.signal,
     }
   );
-
   const data = response.data;
   return { results: data.results, total_pages: data.total_pages };
 };
@@ -23,6 +22,7 @@ export const fetchMovieById = async id => {
 
   return response.data;
 };
+
 export const fetchMovieCastById = async id => {
   const response = await axios.get(
     `https://api.themoviedb.org/3/movie/${id}/credits?api_key=${API_KEY}&language=en-US`
@@ -38,7 +38,7 @@ export const fetchMovieReviewsById = async id => {
 
   return response.data;
 };
-  
+
 export const fetchMoviesByQuery = async (query, page, controller) => {
   const response = await axios.get(
     `https://api.themoviedb.org/3/search/movie?query=${query}&api_key=${API_KEY}&language=en-US&page=${page}`,

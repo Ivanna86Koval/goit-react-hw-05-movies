@@ -6,7 +6,6 @@ export const Header = styled.header`
   flex-direction: column;
   align-items: center;
   text-align: center;
-  padding: 24px;
   background: linear-gradient(
     310deg,
     rgba(101, 0, 94, 0.7) 5%,
