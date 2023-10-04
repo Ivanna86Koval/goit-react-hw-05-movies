@@ -9,7 +9,7 @@ import {
   Image,
   ProdCompany,
 } from './MovieDetails.styled';
-//import noimage from 'components/images/noimage.svg';
+import noimage from 'components/images/noimage.svg';
 import Button from 'components/Button/Button';
 import { Loader } from 'components/Loader/Loader';
 

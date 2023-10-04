@@ -9,7 +9,7 @@ const MovieDetails = lazy(() => import('pages/MovieDetails/MovieDetails.js'));
 const Cast = lazy(() => import('./Cast/Cast.js'));
 const Reviews = lazy(() => import('./Reviews/Reviews.js'));
 
-const App = () => {
+export const App = () => {
   return (
     <Routes>
       <Route path="/" element={<Layout />}>
@@ -24,5 +24,3 @@ const App = () => {
     </Routes>
   );
 };
-
-export default App;

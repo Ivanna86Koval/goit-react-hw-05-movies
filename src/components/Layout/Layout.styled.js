@@ -2,7 +2,7 @@ import styled from 'styled-components';
 import { NavLink } from 'react-router-dom';
 import { SiThemoviedatabase } from 'react-icons/si';
 
-//import background from '../images/background.jpeg';
+import background from '../images/background.jpeg';
 
 export const Container = styled.div`
   max-width: 1200px;
