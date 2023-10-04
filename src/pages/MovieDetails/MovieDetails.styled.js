@@ -1,8 +1,6 @@
 import styled from 'styled-components';
 import propTypes from 'prop-types';
 
-import background from 'components/images/background.jpeg';
-
 export const Container = styled.div`
   display: flex;
   flex-direction: row-reverse;
@@ -29,10 +27,6 @@ export const Container = styled.div`
     left: -5px;
     width: calc(100% + 10px);
     height: calc(100vh + 10px);
-    background-image: ${props =>
-      props.backdrop
-        ? `url('https://image.tmdb.org/t/p/w500/${props.backdrop}')`
-        : `url(${background})`};
     background-size: cover;
     background-position: center;
     background-repeat: no-repeat;

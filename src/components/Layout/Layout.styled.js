@@ -2,7 +2,6 @@ import styled from 'styled-components';
 import { NavLink } from 'react-router-dom';
 import { SiThemoviedatabase } from 'react-icons/si';
 
-import background from '../images/background.jpeg';
 
 export const Container = styled.div`
   max-width: 1200px;
@@ -12,11 +11,6 @@ export const Container = styled.div`
 
   &:before {
     content: '';
-    background-image: linear-gradient(
-        rgba(106, 191, 235, 0),
-        rgba(106, 191, 235, 1)
-      ),
-      url(${background});
     background-blend-mode: multiply;
     background-size: cover;
     background-position: center;
@@ -35,7 +29,7 @@ export const Container = styled.div`
 export const Header = styled.header`
   display: flex;
   align-items: center;
-  justify-content: space-between;
+  //justify-content: space-between;
   gap: 12px;
   padding: 8px 0;
   margin-bottom: 16px;
