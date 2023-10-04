@@ -1,40 +1,28 @@
-import { Route, Routes } from 'react-router-dom';
-import { lazy } from 'react';
-import {
-  Header,
-  ListMenu,
-  ListMenuItem,
-  ListMenuItemLink,
-} from './Header/Header.styled.js';
+import React, { lazy } from 'react';
+import { Routes, Route, Navigate } from 'react-router-dom';
 
-const Home = lazy(() => import('../pages/Home'));
-const MovieDetails = lazy(() => import('../pages/MovieDetails'));
-const MovieCast = lazy(() => import('../pages/MovieCast'));
-const MovieReviews = lazy(() => import('../pages/MovieReviews'));
-const Movies = lazy(() => import('../pages/Movies'));
+import Layout from './Layout/Layout';
 
-export const App = () => {
+const Home = lazy(() => import('pages/Home/Home.js'));
+const Movies = lazy(() => import('pages/Movies/Movies.js'));
+const MovieDetails = lazy(() => import('pages/MovieDetails/MovieDetails.js'));
+const Cast = lazy(() => import('./Cast/Cast.js'));
+const Reviews = lazy(() => import('./Reviews/Reviews.js'));
+
+const App = () => {
   return (
-    <div>
-    <Header>
-      <ListMenu>
-        <ListMenuItem>
-          <ListMenuItemLink to="/">Home</ListMenuItemLink>
-        </ListMenuItem>
-        <ListMenuItem>
-          <ListMenuItemLink to="/movies">Movies</ListMenuItemLink>
-        </ListMenuItem>
-      </ListMenu>
-    </Header>
-       <Routes>
-        <Route path="/" element={<Home />}>
-          <Route path="/movies" element={<Movies />} />
-          <Route path="/movies/:movieId" element={<MovieDetails />}>
-          <Route path="cast" element={<MovieCast />} />
-          <Route path="reviews" element={<MovieReviews />} />
-          </Route>
+    <Routes>
+      <Route path="/" element={<Layout />}>
+        <Route index element={<Home />} />
+        <Route path="movies" element={<Movies />} />
+        <Route path="movies/:movieId" element={<MovieDetails />}>
+          <Route path="cast" element={<Cast />} />
+          <Route path="reviews" element={<Reviews />} />
         </Route>
-      </Routes>
-       </div>
+        <Route path="*" element={<Navigate to="/" />} />
+      </Route>
+    </Routes>
   );
 };
+
+export default App;

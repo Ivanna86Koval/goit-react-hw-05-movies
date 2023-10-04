@@ -1,53 +1,36 @@
 import axios from 'axios'
 
+const API_KEY = '1b7ac39ef2587fff86f686a42562ed8c';
 axios.defaults.baseURL = 'https://api.themoviedb.org/3';
 
-const API_KEY = '1b7ac39ef2587fff86f686a42562ed8c';
-
-export const fetchLatestMovies = async (page, controller) => {
-  const response = await axios.get(
-    `https://api.themoviedb.org/3/trending/all/week?api_key=${API_KEY}&language=en-US&page=${page}`,
-    {
-      signal: controller.signal,
-    }
-  );
-  const data = response.data;
-  return { results: data.results, total_pages: data.total_pages };
+const params = {
+  params: {
+    api_key: API_KEY,
+    language: 'en-US',
+  },
 };
 
-export const fetchMovieById = async id => {
-  const response = await axios.get(
-    `https://api.themoviedb.org/3/movie/${id}?api_key=${API_KEY}&language=en-US`
-  );
+export const fetchTrendingMovies = async () => {
+  const response = await axios.get(`trending/movie/day`, params);
+  return response.data.results;
+};
 
+export const fetchMovieDetails = async movieId => {
+  const response = await axios.get(`/movie/${movieId}`, params);
   return response.data;
 };
 
-export const fetchMovieCastById = async id => {
-  const response = await axios.get(
-    `https://api.themoviedb.org/3/movie/${id}/credits?api_key=${API_KEY}&language=en-US`
-  );
-
-  return response.data;
+export const handleSearch = async movieName => {
+  const response = await axios.get(`/search/movie?query=${movieName}`, params);
+  return response.data.results;
 };
 
-export const fetchMovieReviewsById = async id => {
-  const response = await axios.get(
-    `https://api.themoviedb.org/3/movie/${id}/reviews?api_key=${API_KEY}&language=en-US`
-  );
-
-  return response.data;
+export const fetchMovieCast = async movieId => {
+  const response = await axios.get(`movie/${movieId}/credits?`, params);
+  return response.data.cast;
 };
 
-export const fetchMoviesByQuery = async (query, page, controller) => {
-  const response = await axios.get(
-    `https://api.themoviedb.org/3/search/movie?query=${query}&api_key=${API_KEY}&language=en-US&page=${page}`,
-    {
-      signal: controller.signal,
-    }
-  );
-  return {
-    results: response.data.results,
-    total_pages: response.data.total_pages,
-  };
+export const fetchMovieReviews = async movieId => {
+  const response = await axios.get(`movie/${movieId}/reviews?`, params);
+  return response.data.results;
 };
